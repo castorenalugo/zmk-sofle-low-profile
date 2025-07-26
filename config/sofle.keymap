@@ -90,7 +90,6 @@ nice_view_spi: &spi0 {
 &kp LBKT  &kp Z  &kp X    &kp C    &kp V     &kp B      &kp C_MUTE &none      &kp N  &kp M     &kp COMMA &kp DOT  &kp FSLH &kp RBKT
                  &kp MINUS &kp BSLH &ctrl_alt_combo &kp LCTRL  &kp LALT    &kp LSHFT  &kp SPACE  &mo LOWER &kp DEL  &kp LGUI
             >;
-
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
