@@ -314,19 +314,6 @@ nice_view_spi: &spi0 {
             label = "P2";
         };
     };
-    combos {
-        compatible = "zmk,combos";
-
-        esc {
-            bindings = <&kp ESCAPE>;
-            key-positions = <27 32>;
-        };
-
-        tab {
-            bindings = <&kp TAB>;
-            key-positions = <20 21>;
-        };
-    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -335,9 +322,9 @@ nice_view_spi: &spi0 {
             display-name = "Default";
             bindings = <
 &kp ESC   &kp N1 &kp N2   &kp N3   &kp N4    &kp N5                           &kp N6 &kp N7    &kp N8    &kp N9   &kp N0   &kp RET
-&kp TAB   &kp Q  &kp W    &kp E    &kp R     &kp T                            &kp Y  &kp U     &kp I     &kp O    &kp P    &kp BSPC
-&kp EQUAL &kp A  &kp S    &kp D    &kp F     &kp G                            &kp H  &kp J     &kp K     &kp L    &kp SEMI &kp SQT
-&kp LBKT  &kp Z  &kp X    &kp C    &kp V     &kp B      &kp C_MUTE &none      &kp N  &kp M     &kp COMMA &kp DOT  &kp FSLH &kp RBKT
+&trans  &kp Q   &w_cut_copy  &end    &kp R               &lt 3 T                                &w_yank      &kp U            &kp I      &kp O       &ct_p_up  &trans
+&trans  &home   &kp S        &del    &ct_f_right         &kp G                                  &kp H        &kp J            &kp K      &kp L       &kp SEMI  &trans
+&trans  &kp Z   &kp X        &kp C   &mod_nav            &ct_b_left       &kp trans    &kp trans           &ct_n_down   &kp M            &kp COMMA  &kp PERIOD  &w_undo   &trans
                  &kp MINUS &kp BSLH &kp R &kp LCTRL  &kp LALT    &kp LSHFT  &kp SPACE  &kp H &kp DEL  &kp LGUI
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
