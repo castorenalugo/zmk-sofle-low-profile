@@ -4,17 +4,13 @@
  * SPDX-License-Identifier: MIT
  */
 
+#include <dt-bindings/led/led.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/rgb.h>
-#include <dt-bindings/zmk/ext_power.h>
-#include <dt-bindings/led/led.h>
 
 &spi3 {
     compatible = "nordic,nrf-spim";
     status = "okay";
-
     pinctrl-0 = <&spi3_default>;
     pinctrl-1 = <&spi3_sleep>;
     pinctrl-names = "default", "sleep";
@@ -23,14 +19,15 @@
         compatible = "worldsemi,ws2812-spi";
 
         /* SPI */
+
         reg = <0>; /* ignored, but necessary for SPI bindings */
         spi-max-frequency = <4000000>;
 
         /* WS2812 */
+
         chain-length = <29>; /* arbitrary; change at will */
         spi-one-frame = <0x70>;
         spi-zero-frame = <0x40>;
-
         color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
     };
 };
@@ -40,47 +37,46 @@ nice_view_spi: &spi0 {
     pinctrl-0 = <&spi0_default>;
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
+
     cs-gpios = <&pro_micro 0 GPIO_ACTIVE_HIGH>;
 };
 
 / {
-    chosen {
-        zmk,underglow = &led_strip;
-    };
+    chosen { zmk,underglow = &led_strip; };
 };
 
 / {
     behaviors {
-        ct_p_up: ct_p_up {
+        up: up {
             compatible = "zmk,behavior-mod-morph";
-            label = "CT_P_UP";
+            label = "UP";
             bindings = <&kp P>, <&kp UP_ARROW>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL)>;
         };
 
-        ct_n_down: ct_n_down {
+        down: down {
             compatible = "zmk,behavior-mod-morph";
-            label = "CT_N_DOWN";
+            label = "DOWN";
             bindings = <&kp N>, <&kp DOWN>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL)>;
         };
 
-        ct_b_left: ct_b_left {
+        left: left {
             compatible = "zmk,behavior-mod-morph";
-            label = "CT_B_LEFT";
+            label = "LEFT";
             bindings = <&kp B>, <&kp LEFT>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL)>;
         };
 
-        ct_f_right: ct_f_right {
+        right: right {
             compatible = "zmk,behavior-mod-morph";
-            label = "CT_F_RIGHT";
+            label = "RIGHT";
             bindings = <&kp F>, <&kp RIGHT>;
 
             #binding-cells = <0>;
@@ -191,6 +187,7 @@ nice_view_spi: &spi0 {
             mods = <(MOD_LCTL)>;
         };
     };
+
     macros {
         to_folder: to_folder {
             compatible = "zmk,behavior-macro";
@@ -321,14 +318,14 @@ nice_view_spi: &spi0 {
         default_layer {
             display-name = "Default";
             bindings = <
-&kp ESC   &kp N1 &kp N2   &kp N3   &kp N4    &kp N5                           &kp N6 &kp N7    &kp N8    &kp N9   &kp N0   &kp RET
-&kp TAB    &kp Q   &w_cc   &end    &kp R      &kp T                             &w_yank      &kp U            &kp I      &kp O       &ct_p_up  &kp RET
-&kp TAB    &home   &kp S   &del    &ct_f_right &kp G                            &kp H        &kp J            &kp K      &kp L       &kp SEMI  &kp BSPC
-&kp ESC    &kp Z   &kp X   &kp C   &mod_nav   &ct_b_left  &kp C_MUTE &none      &ct_n_down   &kp M            &kp COMMA  &kp PERIOD  &w_undo   &kp RET
-                 &kp MINUS &kp BSLH &kp R &kp LCTRL  &kp LALT    &kp LSHFT  &kp SPACE  &kp H &kp DEL  &kp LGUI
+&kp ESC  &kp N1  &kp N2     &kp N3    &kp N4    &kp N5                              &kp N6     &kp N7  &kp N8     &kp N9      &kp N0    &kp RET
+&kp TAB  &kp Q   &w_cc      &end      &kp R     &kp T                               &w_yank    &kp U   &kp I      &kp O       &up       &kp RET
+&kp TAB  &home   &kp S      &del      &right    &kp G                               &kp H      &kp J   &kp K      &kp L       &kp SEMI  &kp BSPC
+&kp ESC  &kp Z   &kp X      &kp C     &mod_nav  &left      &kp C_MUTE    &none      &down      &kp M   &kp COMMA  &kp PERIOD  &w_undo   &kp RET
+                 &kp MINUS  &kp BSLH  &kp R     &kp LCTRL  &kp LALT      &kp LSHFT  &kp SPACE  &kp H   &kp DEL    &kp LGUI
             >;
+
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
-
     };
 };
