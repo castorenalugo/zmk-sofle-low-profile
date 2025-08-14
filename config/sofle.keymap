@@ -167,7 +167,7 @@ nice_view_spi: &spi0 {
             mods = <(MOD_LCTL)>;
         };
 
-        w_cut_copy: w_cut_copy {
+        w_cc: w_cc {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&w_cut>, <&kp LC(C)>;
@@ -322,9 +322,9 @@ nice_view_spi: &spi0 {
             display-name = "Default";
             bindings = <
 &kp ESC   &kp N1 &kp N2   &kp N3   &kp N4    &kp N5                           &kp N6 &kp N7    &kp N8    &kp N9   &kp N0   &kp RET
-&trans  &kp Q   &w_cut_copy  &end    &kp R               &lt 3 T                                &w_yank      &kp U            &kp I      &kp O       &ct_p_up  &trans
-&trans  &home   &kp S        &del    &ct_f_right         &kp G                                  &kp H        &kp J            &kp K      &kp L       &kp SEMI  &trans
-&trans  &kp Z   &kp X        &kp C   &mod_nav            &ct_b_left       &kp trans    &kp trans           &ct_n_down   &kp M            &kp COMMA  &kp PERIOD  &w_undo   &trans
+&kp TAB    &kp Q   &w_cc   &end    &kp R      &kp T                             &w_yank      &kp U            &kp I      &kp O       &ct_p_up  &kp RET
+&kp TAB    &home   &kp S   &del    &ct_f_right &kp G                            &kp H        &kp J            &kp K      &kp L       &kp SEMI  &kp BSPC
+&kp ESC    &kp Z   &kp X   &kp C   &mod_nav   &ct_b_left  &kp C_MUTE &none      &ct_n_down   &kp M            &kp COMMA  &kp PERIOD  &w_undo   &kp RET
                  &kp MINUS &kp BSLH &kp R &kp LCTRL  &kp LALT    &kp LSHFT  &kp SPACE  &kp H &kp DEL  &kp LGUI
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
