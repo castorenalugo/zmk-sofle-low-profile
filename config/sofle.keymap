@@ -311,11 +311,11 @@ nice_view_spi: &spi0 {
             label = "P2";
         };
 
-        select: l_arrow {
+        select: select {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp SPACE &kp EQUAL &kp LESS_THAN &kp SPACE &kp DOT &kp LS(S) &kp E &kp L &kp E &kp C &kp T &kp LPAR &kp X &kp SPACE &kp EQUAL &kp GT &kp SPACE &kp X &kp DOT &kp SPACE &kp RPAR>;
-            label = "L_ARROW";
+            bindings = <&kp SPACE &kp EQUAL &kp LESS_THAN &kp SPACE &kp DOT &kp LS(S) &kp E &kp L &kp E &kp C &kp T &kp LPAR &kp X &kp SPACE &kp EQUAL &kp GT &kp SPACE &kp X &kp DOT &kp SPACE &kp RPAR &kp LEFT>;
+            label = "SELECT";
         };
 
         lambda: r_arrow {
