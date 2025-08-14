@@ -11,14 +11,6 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/led/led.h>
 
-#define BASE 0
-#define LOWER 1
-#define RAISE 2
-#define ADJUST 3
-
-#define HRML(k1,k2,k3,k4) &ht LSHFT k1  &ht LALT k2  &ht LCTRL k3  &ht LGUI k4
-#define HRMR(k1,k2,k3,k4) &ht RGUI k1  &ht RCTRL k2  &ht RALT k3  &ht RSHFT k4
-
 &spi3 {
     compatible = "nordic,nrf-spim";
     status = "okay";
@@ -58,15 +50,281 @@ nice_view_spi: &spi0 {
 };
 
 / {
-      behaviors {
-        ht: hold_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <150>;
-            require-prior-idle-ms = <100>;
-            bindings = <&kp>, <&kp>;
+    behaviors {
+        ct_p_up: ct_p_up {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CT_P_UP";
+            bindings = <&kp P>, <&kp UP_ARROW>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        ct_n_down: ct_n_down {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CT_N_DOWN";
+            bindings = <&kp N>, <&kp DOWN>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        ct_b_left: ct_b_left {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CT_B_LEFT";
+            bindings = <&kp B>, <&kp LEFT>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        ct_f_right: ct_f_right {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CT_F_RIGHT";
+            bindings = <&kp F>, <&kp RIGHT>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        mod_ctrl: mod_ctrl {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp V>, <&kp PAGE_DOWN>;
+
+            mods = <MOD_LCTL>;
+        };
+
+        mod_nav: mod_nav {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mod_ctrl>, <&kp PAGE_UP>;
+
+            mods = <MOD_LALT>;
+        };
+
+        home: home {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp A>, <&kp HOME>;
+
+            mods = <(MOD_LCTL)>;
+        };
+
+        end: end {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp E>, <&kp END>;
+
+            mods = <(MOD_LCTL)>;
+        };
+
+        del: del {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp D>, <&kp DEL>;
+
+            mods = <(MOD_LCTL)>;
+        };
+
+        m_cut: m_cut {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp W>, <&kp LG(X)>;
+
+            mods = <(MOD_LCTL)>;
+        };
+
+        m_cut_copy: m_cut_copy {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&m_cut>, <&kp LG(C)>;
+
+            mods = <MOD_LALT>;
+        };
+
+        m_yank: m_yank {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp Y>, <&kp LG(V)>;
+
+            mods = <(MOD_LCTL)>;
+        };
+
+        m_undo: m_undo {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SLASH>, <&kp LG(Z)>;
+
+            mods = <(MOD_LCTL)>;
+        };
+
+        w_cut: w_cut {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp W>, <&kp LC(X)>;
+
+            mods = <(MOD_LCTL)>;
+        };
+
+        w_cut_copy: w_cut_copy {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&w_cut>, <&kp LC(C)>;
+
+            mods = <MOD_LALT>;
+        };
+
+        w_yank: w_yank {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp Y>, <&kp LC(V)>;
+
+            mods = <(MOD_LCTL)>;
+        };
+
+        w_undo: w_undo {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SLASH>, <&kp LC(Z)>;
+
+            mods = <(MOD_LCTL)>;
+        };
+    };
+    macros {
+        to_folder: to_folder {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_press>,
+                <&kp NUMBER_1>,
+                <&macro_release>,
+                <&kp NUMBER_1>,
+                <&macro_release>,
+                <&kp LGUI>,
+                <&macro_press>,
+                <&to 0>,
+                <&macro_release>,
+                <&to 0>;
+        };
+
+        to_emacs: to_emacs {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_press>,
+                <&kp NUMBER_2>,
+                <&macro_release>,
+                <&kp NUMBER_2>,
+                <&macro_release>,
+                <&kp LGUI>,
+                <&macro_press>,
+                <&to 1>,
+                <&macro_release>,
+                <&to 1>;
+        };
+
+        to_browser: to_browser {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_press>,
+                <&kp NUMBER_3>,
+                <&macro_release>,
+                <&kp NUMBER_3>,
+                <&macro_release>,
+                <&kp LGUI>,
+                <&macro_press>,
+                <&to 0>,
+                <&macro_release>,
+                <&to 0>;
+        };
+
+        to_terminal: to_terminal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_press>,
+                <&kp NUMBER_4>,
+                <&macro_release>,
+                <&kp NUMBER_4>,
+                <&macro_release>,
+                <&kp LGUI>,
+                <&macro_press>,
+                <&to 0>,
+                <&macro_release>,
+                <&to 0>;
+        };
+
+        to_notes: to_notes {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_press>,
+                <&kp NUMBER_5>,
+                <&macro_release>,
+                <&kp NUMBER_5>,
+                <&macro_release>,
+                <&kp LGUI>,
+                <&macro_press>,
+                <&to 0>,
+                <&macro_release>,
+                <&to 0>;
+        };
+
+        to_chat: to_chat {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_press>,
+                <&kp NUMBER_6>,
+                <&macro_release>,
+                <&kp NUMBER_6>,
+                <&macro_release>,
+                <&kp LGUI>,
+                <&macro_press>,
+                <&to 0>,
+                <&macro_release>,
+                <&to 0>;
+        };
+
+        p1: p1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp LS(A) &kp LS(C) &kp N1 &kp N0 &kp N8 &kp A &kp L &kp L &kp I &kp E &kp D &kp POUND &kp DLLR>;
+            label = "P1";
+        };
+
+        p2: p2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp LS(J) &kp E &kp R &kp G &kp O &kp T &kp A &kp S &kp S &kp N1 &kp N2 &kp N3 &kp EXCL &kp EXCL>;
+            label = "P2";
+        };
+    };
+    combos {
+        compatible = "zmk,combos";
+
+        esc {
+            bindings = <&kp ESCAPE>;
+            key-positions = <27 32>;
+        };
+
+        tab {
+            bindings = <&kp TAB>;
+            key-positions = <20 21>;
         };
     };
 
