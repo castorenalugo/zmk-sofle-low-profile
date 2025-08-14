@@ -220,9 +220,9 @@ nice_view_spi: &spi0 {
                 <&macro_release>,
                 <&kp LGUI>,
                 <&macro_press>,
-                <&to 2>,
+                <&to 3>,
                 <&macro_release>,
-                <&to 2>;
+                <&to 3>;
         };
 
         to_browser: to_browser {
@@ -344,11 +344,11 @@ nice_view_spi: &spi0 {
 
         sym {
             bindings = <
-&trans         &to_folder      &to_emacs         &to_browser           &to_terminal  &to_notes                    &to_chat  &trans          &trans                 &trans             &trans           &trans
-&trans         &trans          &kp AMPS          &kp DOUBLE_QUOTES     &kp MINUS     &trans                       &trans    &kp UNDERSCORE  &kp SINGLE_QUOTE       &kp PIPE           &trans           &trans
-&kp LESS_THAN  &kp LEFT_BRACE  &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp EQUAL     &trans                       &trans    &kp PLUS        &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &kp GREATER_THAN
-&trans         &trans          &kp EXCL          &kp QUESTION          &trans        &trans     &trans    &trans  &trans    &trans          &trans                 &trans             &kp BACKSLASH    &trans
-                               &trans            &trans                &trans        &trans     &trans    &trans  &trans    &trans          &trans                 &trans
+&trans         &to_folder      &to_emacs         &to_browser           &to_terminal   &to_notes                    &to_chat  &trans    &trans                 &trans             &trans           &trans
+&trans         &trans          &kp SINGLE_QUOTE  &kp DOUBLE_QUOTES     &kp MINUS      &trans                       &trans    &trans    &kp AMPS               &kp PIPE           &trans           &trans
+&kp LESS_THAN  &kp LEFT_BRACE  &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp EQUAL      &kp UNDER                    &trans    &kp PLUS  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &kp GREATER_THAN
+&trans         &trans          &kp EXCL          &kp QUESTION          &kp BACKSLASH  &trans     &trans    &trans  &trans    &trans    &trans                 &trans             &trans           &trans
+                               &trans            &trans                &trans         &trans     &trans    &trans  &trans    &trans    &trans                 &trans
             >;
         };
 
@@ -364,7 +364,7 @@ nice_view_spi: &spi0 {
 
         emacs {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&p1     &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &p2
 &trans  &trans  &kp W   &kp E   &trans  &trans                    &kp Y   &trans  &trans  &trans  &kp P   &trans
 &trans  &kp A   &trans  &kp D   &kp F   &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &kp V   &kp B   &trans    &trans  &kp N   &trans  &trans  &trans  &trans  &trans
