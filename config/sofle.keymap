@@ -406,14 +406,14 @@ nice_view_spi: &spi0 {
         ob: ob {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp DOT &kp LS(O) &kp R &kp D &kp E &kp R &kp B &kp Y &kp LPAR &kp X &kp SPACE &kp EQUAL &kp GT &kp SPACE &kp X &kp DOT &kp LEFT &kp RPAR &to 0>;
+            bindings = <&kp DOT &kp LS(O) &kp R &kp D &kp E &kp R &kp B &kp Y &kp LPAR &kp X &kp SPACE &kp EQUAL &kp GT &kp SPACE &kp X &kp DOT &kp RPAR &kp LEFT &to 0>;
             label = "ORDERBY";
         };
 
         obd: obd {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp DOT &kp LS(O) &kp R &kp D &kp E &kp R &kp B &kp Y &kp LS(D) &kp E &kp S &kp C &kp LEFT &kp E &kp N &kp D &kp I &kp N &kp G &kp LPAR &kp X &kp SPACE &kp EQUAL &kp GT &kp SPACE &kp X &kp DOT &kp LEFT &kp RPAR &to 0>;
+            bindings = <&kp DOT &kp LS(O) &kp R &kp D &kp E &kp R &kp B &kp Y &kp LS(D) &kp E &kp S &kp C &kp E &kp N &kp D &kp I &kp N &kp G &kp LPAR &kp X &kp SPACE &kp EQUAL &kp GT &kp SPACE &kp X &kp DOT &kp RPAR &kp LEFT &to 0>;
             label = "ORDERBYDESC";
         };
 
@@ -427,7 +427,7 @@ nice_view_spi: &spi0 {
         countc: countc {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp DOT &kp LS(C) &kp O &kp U &kp N &kp T &kp LPAR &kp X &kp SPACE &kp EQUAL &kp GT &kp SPACE &kp X &kp DOT &kp LEFT &kp RPAR &to 0>;
+            bindings = <&kp DOT &kp LS(C) &kp O &kp U &kp N &kp T &kp LPAR &kp X &kp SPACE &kp EQUAL &kp GT &kp SPACE &kp X &kp DOT &kp RPAR &kp LEFT &to 0>;
             label = "COUNTCOND";
         };
 
@@ -485,7 +485,7 @@ nice_view_spi: &spi0 {
 &trans  &trans  &trans  &trans  &ta     &trans                    &trans  &trans  &trans  &ob     &trans  &trans
 &trans  &any    &sod    &dist   &fod    &trans                    &trans  &trans  &trans  &tl     &trans  &trans
 &trans  &trans  &trans  &count  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &to 0   &trans  &trans    &trans  &trans  &trans  &trans  &trans
             >;
         };
 
@@ -495,7 +495,7 @@ nice_view_spi: &spi0 {
 &trans  &trans  &trans  &trans   &taa    &trans                    &trans  &trans  &trans  &obd    &trans  &trans
 &trans  &anya   &soda   &distb   &foda   &trans                    &trans  &trans  &trans  &tla    &trans  &trans
 &trans  &trans  &trans  &countc  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans   &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+                &trans  &trans   &to 0   &trans  &trans    &trans  &trans  &trans  &trans  &trans
             >;
         };
 
