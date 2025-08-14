@@ -50,7 +50,7 @@ nice_view_spi: &spi0 {
         macro: macro {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <500>;
             bindings = <&to 2 &to 3>;
             label = "MACRO";
         };
@@ -329,23 +329,66 @@ nice_view_spi: &spi0 {
         where: where {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp DOT &kp LS(W) &kp H &kp E &kp R &kp E &kp LPAR &kp X &kp SPACE &kp EQUAL &kp GT &kp SPACE &kp X &kp DOT &kp RPAR &kp LEFT>;
+            bindings = <&kp DOT &kp LS(W) &kp H &kp E &kp R &kp E &kp LPAR &kp X &kp SPACE &kp EQUAL &kp GT &kp SPACE &kp X &kp DOT &kp RPAR &kp LEFT &to 0>;
             label = "WHERE";
         };
 
-        distinct: distinct {
+        dist: dist {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp DOT &kp LS(D) &kp I &kp S &kp T &kp I &kp N &kp C &kp T &kp LPAR &kp RPAR &to 0>;
-            label = "DISTINCT";
+            label = "DIST";
         };
 
-        distinct_by: distinct_by {
+        distb: distb {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp DOT &kp LS(D) &kp I &kp S &kp T &kp I &kp N &kp C &kp T &kp LS(B) &kp Y &kp LPAR &kp X &kp SPACE &kp EQUAL &kp GT &kp SPACE &kp X &kp DOT &kp RPAR &kp LEFT &to 0>;
-            label = "DISTINCT_BY";
+            label = "distb";
         };
+
+        fod: fod {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp DOT &kp LS(F) &kp I &kp R &kp S &kp T &kp LS(O) &kp R &kp LS(D) &kp E &kp F &kp A &kp U &kp L &kp T &kp LPAR &kp RPAR &to 0>;
+            label = "FOD";
+        };
+
+        foda: foda {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp DOT &kp LS(F) &kp I &kp R &kp S &kp T &kp LS(O) &kp R &kp LS(D) &kp E &kp F &kp A &kp U &kp L &kp T &kp LS(A) &kp S &kp Y &kp N &kp C &kp LPAR &kp RPAR &to 0>;
+            label = "FODA";
+        };
+
+        tl: tl {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp DOT &kp LS(T) &kp O &kp LS(L) &kp I &kp S &kp T &kp LPAR &kp RPAR &to 0>;
+            label = "TL";
+        };
+
+        tla: tla {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp DOT &kp LS(T) &kp O &kp LS(L) &kp I &kp S &kp T &kp LS(A) &kp S &kp Y &kp N &kp C &kp LPAR &kp RPAR &to 0>;
+            label = "TLA";
+        };
+
+        ta: ta {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp DOT &kp LS(T) &kp O &kp LS(A) &kp R &kp R &kp A &kp Y &kp LPAR &kp RPAR &to 0>;
+            label = "TA";
+        };
+
+        taa: taa {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp DOT &kp LS(T) &kp O &kp LS(A) &kp R &kp R &kp A &kp Y &kp LS(A) &kp S &kp Y &kp N &kp C &kp LPAR &kp RPAR &to 0>;
+            label = "TAA";
+        };
+
 
         lambda: r_arrow {
             compatible = "zmk,behavior-macro";
@@ -383,21 +426,21 @@ nice_view_spi: &spi0 {
 
         macro1 {
             bindings = <
-&trans  &trans  &trans  &trans     &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans     &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &distinct  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans     &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans     &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &ta     &trans  &dist   &fod    &trans                    &trans  &trans  &trans  &tl     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
             >;
         };
 
         macro2 {
             bindings = <
-&trans  &trans  &trans  &trans        &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans        &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &distinct_by  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans        &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans        &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &taa    &trans  &distb  &foda   &trans                    &trans  &trans  &trans  &tla    &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
             >;
         };
 
