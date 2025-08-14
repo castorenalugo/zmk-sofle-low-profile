@@ -186,6 +186,14 @@ nice_view_spi: &spi0 {
 
             mods = <(MOD_LCTL)>;
         };
+
+        mod_distinct: mod_distinct {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&distinct>, <&distinct_by>;
+            mods = <(MOD_LSFT | MOD_RSFT)>;
+        };
+
     };
 
     macros {
@@ -318,6 +326,13 @@ nice_view_spi: &spi0 {
             label = "SELECT";
         };
 
+        where: where { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp DOT &kp LS(W) &kp H &kp E &kp R &kp E &kp LPAR &kp X &kp SPACE &kp EQUAL &kp GT &kp SPACE &kp X &kp DOT &kp RPAR &kp LEFT>; label = "WHERE"; };
+
+        distinct: distinct { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp DOT &kp LS(D) &kp I &kp S &kp T &kp I &kp N &kp C &kp T &kp LPAR &kp RPAR>; label = "DISTINCT"; };
+
+        distinct_by: distinct_by { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp DOT &kp LS(D) &kp I &kp S &kp T &kp I &kp N &kp C &kp T &kp LS(B) &kp Y &kp LPAR &kp X &kp SPACE &kp EQUAL &kp GT &kp SPACE &kp X &kp DOT &kp RPAR &kp LEFT>; label = "DISTINCT_BY"; };
+
+
         lambda: r_arrow {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -356,7 +371,7 @@ nice_view_spi: &spi0 {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &mod_distinct  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
                 &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
             >;
