@@ -344,11 +344,11 @@ nice_view_spi: &spi0 {
 
         sym {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans         &trans          &trans            &trans                &trans     &trans                    &trans  &trans          &trans                 &trans             &trans           &trans
+&trans         &trans          &trans            &kp DOUBLE_QUOTES     &kp MINUS  &trans                    &trans  &kp UNDERSCORE  &kp SINGLE_QUOTE       &trans             &trans           &trans
+&kp LESS_THAN  &kp LEFT_BRACE  &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp EQUAL  &trans                    &trans  &kp PLUS        &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &kp GREATER_THAN
+&trans         &trans          &trans            &trans                &trans     &trans  &trans    &trans  &trans  &trans          &trans                 &trans             &trans           &trans
+                               &trans            &trans                &trans     &trans  &trans    &trans  &trans  &trans          &trans                 &trans
             >;
         };
 
