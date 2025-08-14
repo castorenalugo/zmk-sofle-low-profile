@@ -332,11 +332,11 @@ nice_view_spi: &spi0 {
         default_layer {
             display-name = "Default";
             bindings = <
-&kp GRAVE  &kp N1  &kp N2            &kp N3        &kp N4    &kp N5                              &kp N6     &kp N7  &kp N8        &kp N9         &kp N0    &kp TILDE
-&select    &kp Q   &w_cc             &end          &kp R     &kp T                               &w_yank    &kp U   &kp I         &kp O          &up       &lambda
-&kp TAB    &home   &kp S             &del          &right    &kp G                               &kp H      &kp J   &kp K         &kp L          &kp SEMI  &kp BSPC
-&kp ESC    &kp Z   &kp X             &kp C         &mod_nav  &left      &kp C_MUTE    &none      &down      &kp M   &kp COMMA     &kp PERIOD     &w_undo   &kp RET
-                   &kp LC(LEFT_ALT)  &kp LEFT_GUI  &mo 2     &kp LCTRL  &kp LALT      &kp LSHFT  &kp SPACE  &mo 1   &kp LEFT_GUI  &kp LA(LCTRL)
+&kp GRAVE  &kp N1  &kp N2   &kp N3            &kp N4    &kp N5                              &kp N6     &kp N7  &kp N8     &kp N9      &kp N0    &kp TILDE
+&select    &kp Q   &w_cc    &end              &kp R     &kp T                               &w_yank    &kp U   &kp I      &kp O       &up       &lambda
+&kp TAB    &home   &kp S    &del              &right    &kp G                               &kp H      &kp J   &kp K      &kp L       &kp SEMI  &kp BSPC
+&kp ESC    &kp Z   &kp X    &kp C             &mod_nav  &left      &kp C_MUTE    &none      &down      &kp M   &kp COMMA  &kp PERIOD  &w_undo   &kp RET
+                   &kp DEL  &kp LC(LEFT_ALT)  &mo 2     &kp LCTRL  &kp LALT      &kp LSHFT  &kp SPACE  &mo 1   &mo 3      &kp LGUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -344,11 +344,11 @@ nice_view_spi: &spi0 {
 
         sym {
             bindings = <
-&trans         &trans          &trans            &trans                &trans     &trans                    &trans  &trans          &trans                 &trans             &trans           &trans
-&trans         &kp EXCL        &kp AMPS          &kp DOUBLE_QUOTES     &kp MINUS  &trans                    &trans  &kp UNDERSCORE  &kp SINGLE_QUOTE       &kp PIPE           &kp QUESTION     &trans
-&kp LESS_THAN  &kp LEFT_BRACE  &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp EQUAL  &trans                    &trans  &kp PLUS        &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &kp GREATER_THAN
-&trans         &trans          &trans            &trans                &trans     &trans  &trans    &trans  &trans  &trans          &trans                 &trans             &kp BACKSLASH    &trans
-                               &trans            &trans                &trans     &trans  &trans    &trans  &trans  &trans          &trans                 &trans
+&trans         &to_folder      &to_emacs         &to_browser           &to_terminal  &to_notes                    &to_chat  &trans          &trans                 &trans             &trans           &trans
+&trans         &trans          &kp AMPS          &kp DOUBLE_QUOTES     &kp MINUS     &trans                       &trans    &kp UNDERSCORE  &kp SINGLE_QUOTE       &kp PIPE           &trans           &trans
+&kp LESS_THAN  &kp LEFT_BRACE  &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp EQUAL     &trans                       &trans    &kp PLUS        &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &kp GREATER_THAN
+&trans         &trans          &kp EXCL          &kp QUESTION          &trans        &trans     &trans    &trans  &trans    &trans          &trans                 &trans             &kp BACKSLASH    &trans
+                               &trans            &trans                &trans        &trans     &trans    &trans  &trans    &trans          &trans                 &trans
             >;
         };
 
@@ -358,6 +358,16 @@ nice_view_spi: &spi0 {
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        emacs {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &kp W   &kp E   &trans  &trans                    &kp Y   &trans  &trans  &trans  &kp P   &trans
+&trans  &kp A   &trans  &kp D   &kp F   &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &kp V   &kp B   &trans    &trans  &kp N   &trans  &trans  &trans  &trans  &trans
                 &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
             >;
         };
