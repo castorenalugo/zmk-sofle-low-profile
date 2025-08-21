@@ -139,6 +139,13 @@ nice_view_spi: &spi0 {
 
             mods = <(MOD_LCTL)>;
         };
+        r_src: r_src {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp R>, <&kp LS(F3)>;
+
+            mods = <(MOD_LCTL)>;
+        };
         to_fn: to_fn {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -462,7 +469,7 @@ nice_view_spi: &spi0 {
             display-name = "Default";
             bindings = <
 &kp EQUAL  &kp N1   &kp N2   &kp N3     &kp N4      &kp N5                         &kp N6     &kp N7        &kp N8      &kp N9    &kp N0      &kp MINUS
-&kp TAB    &kp Q    &w_cc    &end       &kp R       &kp T                          &w_yank    &kp U         &kp I       &kp O     &prev       &kp LBKT
+&kp TAB    &kp Q    &w_cc    &end       &kp r_src   &kp T                          &w_yank    &kp U         &kp I       &kp O     &prev       &kp LBKT
 &kp BSPC   &home    &srch    &del       &fwrd       &kp G                          &kp H      &kp J         &kp K       &kp L     &kp SEMI    &kp RET
 &kp BSLH   &kp Z    &to_fn   &kp C      &nav        &befr     &kp A     &none      &next      &kp M         &kp COMMA   &kp DOT   &w_undo     &kp SQT
                     &kp A &kp B    &kp C      &kp LCTRL  &kp LALT            &kp LSHFT  &kp SPACE     &kp D   &kp E      &kp F
@@ -472,11 +479,11 @@ nice_view_spi: &spi0 {
         };
          func {
             bindings = <
-&trans  &trans  &trans  &trans   &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans   &taa    &trans                    &trans  &trans  &trans  &obd    &trans  &trans
-&trans  &anya   &soda   &distb   &foda   &trans                    &trans  &trans  &trans  &tla    &trans  &trans
-&trans  &trans  &trans  &countc  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans   &to 0   &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans   &trans  &trans   &trans                    &trans  &trans  &trans    &trans  &trans  &trans
+&trans  &trans  &trans   &trans  &trans   &trans                    &trans  &trans  &trans    &trans  &trans  &trans
+&trans  &trans  &s_save  &trans  &f_find  &to 0                     &trans  &trans  &killbfr  &trans  &trans  &trans
+&trans  &trans  &trans   &trans  &trans   &trans  &trans    &trans  &trans  &trans  &trans    &trans  &trans  &trans
+                &trans   &trans  &to 0    &trans  &trans    &trans  &trans  &trans  &trans    &trans
             >;
         };
     };
