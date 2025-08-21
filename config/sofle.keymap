@@ -54,115 +54,6 @@ nice_view_spi: &spi0 {
             bindings = <&to 2 &to 3>;
             label = "MACRO";
         };
-
-        up: up {
-            compatible = "zmk,behavior-mod-morph";
-            label = "UP";
-            bindings = <&kp P>, <&kp UP_ARROW>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
-        };
-
-        down: down {
-            compatible = "zmk,behavior-mod-morph";
-            label = "DOWN";
-            bindings = <&kp N>, <&kp DOWN>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
-        };
-
-        left: left {
-            compatible = "zmk,behavior-mod-morph";
-            label = "LEFT";
-            bindings = <&kp B>, <&kp LEFT>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
-        };
-
-        right: right {
-            compatible = "zmk,behavior-mod-morph";
-            label = "RIGHT";
-            bindings = <&kp F>, <&kp RIGHT>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
-        };
-
-        mod_ctrl: mod_ctrl {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp V>, <&kp PAGE_DOWN>;
-
-            mods = <MOD_LCTL>;
-        };
-
-        mod_nav: mod_nav {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&mod_ctrl>, <&kp PAGE_UP>;
-
-            mods = <MOD_LALT>;
-        };
-
-        home: home {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp A>, <&kp HOME>;
-
-            mods = <(MOD_LCTL)>;
-        };
-
-        end: end {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp E>, <&kp END>;
-
-            mods = <(MOD_LCTL)>;
-        };
-
-        del: del {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp D>, <&kp DEL>;
-
-            mods = <(MOD_LCTL)>;
-        };
-
-        m_cut: m_cut {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp W>, <&kp LG(X)>;
-
-            mods = <(MOD_LCTL)>;
-        };
-
-        m_cc: m_cc {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&m_cut>, <&kp LG(C)>;
-
-            mods = <MOD_LALT>;
-        };
-
-        m_yank: m_yank {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp Y>, <&kp LG(V)>;
-
-            mods = <(MOD_LCTL)>;
-        };
-
-        m_undo: m_undo {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp SLASH>, <&kp LG(Z)>;
-
-            mods = <(MOD_LCTL)>;
-        };
-
         w_cut: w_cut {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -194,6 +85,80 @@ nice_view_spi: &spi0 {
 
             mods = <(MOD_LCTL)>;
         };
+
+        prev: prev {
+            compatible = "zmk,behavior-mod-morph";
+            bindings = <&kp P>, <&kp UP_ARROW>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        next: next {
+            compatible = "zmk,behavior-mod-morph";
+            bindings = <&kp N>, <&kp DOWN>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        befr: befr {
+            compatible = "zmk,behavior-mod-morph";
+            bindings = <&kp B>, <&kp LEFT>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        fwrd: fwrd { compatible = "zmk,behavior-mod-morph"; bindings = <&kp F>, <&kp RIGHT>; #binding-cells = <0>; mods = <(MOD_LCTL)>;};
+
+        mod_ctrl: mod_ctrl { compatible = "zmk,behavior-mod-morph"; bindings = <&kp V>, <&kp PAGE_DOWN>; #binding-cells = <0>; mods = <MOD_LCTL>;};
+
+        nav: nav { compatible = "zmk,behavior-mod-morph"; bindings = <&mod_ctrl>, <&kp PAGE_UP>; #binding-cells = <0>; mods = <MOD_LALT>;};
+
+        home: home { compatible = "zmk,behavior-mod-morph"; bindings = <&kp A>, <&kp HOME>; #binding-cells = <0>; mods = <(MOD_LCTL)>;};
+
+        end: end {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp E>, <&kp END>;
+
+            mods = <(MOD_LCTL)>;
+        };
+        del: del {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp D>, <&kp DEL>;
+
+            mods = <(MOD_LCTL)>;
+        };
+        srch: srch {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp S>, <&kp LC(F)>;
+
+            mods = <(MOD_LCTL)>;
+        };
+        to_fn: to_fn {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp X>, <&to 3>;
+
+            mods = <(MOD_LCTL)>;
+        };
+        f_find: f_find {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&to 0>, <&find>;
+            mods = <MOD_LCTL>;
+        };
+        s_save: s_save {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&saveall>, <&save>;
+            mods = <MOD_LCTL>;
+        };
+
     };
 
     macros {
@@ -459,10 +424,10 @@ nice_view_spi: &spi0 {
         default_layer {
             display-name = "Default";
             bindings = <
-&kp GRAVE  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3      &kp NUMBER_4  &kp N5                              &kp NUMBER_6  &kp N7  &kp N8     &kp N9    &kp N0    &kp BACKSLASH
-&kp LBKT   &kp Q         &w_cc         &end              &kp R         &kp T                               &w_yank       &kp U   &kp I      &kp O     &up       &kp RBKT
-&kp EQUAL  &home         &kp S         &del              &right        &kp G                               &kp H         &kp J   &kp K      &kp L     &kp SEMI  &kp SQT
-&kp TAB    &kp Z         &kp X         &kp C             &mod_nav      &left      &kp C_MUTE    &none      &down         &kp M   &kp COMMA  &kp DOT   &w_undo   &kp RET
+&kp EQUAL  &kp N1   &kp N2   &kp N3      &kp N4      &kp N5                         &kp N6      &kp N7        &kp N8      &kp N9    &kp N0      &kp MINUS
+&kp TAB    &kp Q    &w_cc    &end        &kp R       &kp T                          &w_yank     &kp U         &kp I       &kp O     &prev       &kp LBKT
+&kp BSPC   &home    &srch    &del        &fwrd       &kp G                          &kp H       &kp J         &kp K       &kp L     &kp SEMI    &kp RET
+&kp BSLH   &kp Z    &to_fn   &kp C       &nav        &befr     &kp A     &none      &next       &kp M         &kp COMMA   &kp DOT   &w_undo     &kp SQT
                          &kp DEL       &kp LC(LEFT_ALT)  &macro        &kp LCTRL  &kp LALT      &kp LSHFT  &kp SPACE     &mo 1   &mo 4      &kp LGUI
             >;
 
