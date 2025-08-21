@@ -284,6 +284,43 @@ nice_view_spi: &spi0 {
             label = "P2";
         };
 
+        find: find {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp LCTRL>,
+                <&macro_press &kp P>,
+                <&macro_release &kp P>,
+                <&macro_release &kp LCTRL>,
+                <&to 0>;
+        };
+        save: save {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp LC(S)>,
+                <&macro_release &kp LC(S)>,
+                <&to 0>;
+        };
+        saveall: saveall {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp LC(K)>,
+                <&macro_release &kp LC(K)>,
+                <&macro_press &kp S>,
+                <&macro_release &kp S>,
+                <&to 0>;
+        };
+        killbfr: killbfr {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp LC(W)>,
+                <&macro_release &kp LC(W)>,
+                <&to 0>;
+        };
+
         select: select {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
