@@ -47,6 +47,10 @@ nice_view_spi: &spi0 {
 
 / {
     behaviors {
+        macro_delay: macro_delay {
+            compatible = "zmk,behavior-macro-delay";
+            #binding-cells = <1>;
+        };
         macro: macro {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
