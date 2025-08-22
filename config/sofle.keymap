@@ -296,8 +296,7 @@ nice_view_spi: &spi0 {
             #binding-cells = <0>;
             bindings =
                 <&macro_press &kp LCTRL>,
-                <&macro_press &kp P>,
-                <&macro_release &kp P>,
+                <&macro_tap &kp P>,
                 <&macro_release &kp LCTRL>,
                 <&to 0>;
         };
@@ -478,6 +477,7 @@ nice_view_spi: &spi0 {
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
          func {
+            display-name = "func";
             bindings = <
 &trans  &trans  &trans   &trans  &trans   &trans                    &trans  &trans  &trans    &trans  &trans  &trans
 &trans  &trans  &trans   &trans  &trans   &trans                    &trans  &trans  &trans    &trans  &trans  &trans
