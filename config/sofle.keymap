@@ -295,9 +295,7 @@ nice_view_spi: &spi0 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_wait_time 400>,
                 <&macro_tap &kp LC(P)>,
-                <&macro_wait_time 400>,
                 <&to 0>;
         };
         save: save {
