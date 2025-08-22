@@ -298,6 +298,7 @@ nice_view_spi: &spi0 {
                 <&macro_press &kp LCTRL>,
                 <&macro_tap &kp P>,
                 <&macro_release &kp LCTRL>,
+                <&macro_delay 100>,
                 <&to 0>;
         };
         save: save {
