@@ -149,7 +149,7 @@ nice_view_spi: &spi0 {
         to_fn: to_fn {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp X>, <&to 3>;
+            bindings = <&kp X>, <&to 1>;
 
             mods = <(MOD_LCTL)>;
         };
