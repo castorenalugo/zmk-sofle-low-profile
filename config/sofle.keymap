@@ -56,13 +56,13 @@ nice_view_spi: &spi0 {
         m_dot: m_dot {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp F12>, <&kp LS(END)>;
+            bindings = <&kp F12>, <&kp LC(END)>;
             mods = <MOD_LSFT>;
         };
         m_coma: m_coma {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp LA(LEFT)>, <&kp LS(HOME)>;
+            bindings = <&kp LA(LEFT)>, <&kp LC(HOME)>;
             mods = <MOD_LSFT>;
         };
     };
@@ -147,10 +147,10 @@ nice_view_spi: &spi0 {
         control {
             display-name = "control";
             bindings = <
-&trans  &trans    &trans     &trans   &trans     &trans                      &trans    &trans  &trans         &trans      &trans    &trans
-&trans  &trans    &kp LC(X)  &kp END  &kp LS(F3) &trans                      &kp LC(V) &trans  &trans         &trans      &kp UP    &trans
-&trans  &kp HOME  &kp LC(F)  &kp DEL  &kp RIGHT  &trans                      &trans    &trans  &kill          &trans      &trans    &trans
-&trans  &trans    &to 3      &trans   &kp PG_DN  &kp LEFT  &trans    &trans  &kp DOWN  &trans  &kp LC(COMMA)  &kp LC(DOT) &kp LC(Z) &trans
+&trans  &trans    &trans     &trans   &trans     &trans                      &trans    &trans  &trans         &trans      &trans        &trans
+&trans  &trans    &kp LC(X)  &kp END  &kp LS(F3) &trans                      &kp LC(V) &trans  &trans         &trans      &kp UP        &trans
+&trans  &kp HOME  &kp LC(F)  &kp DEL  &kp RIGHT  &trans                      &trans    &trans  &kill          &trans      &kp LC(GRAVE) &trans
+&trans  &trans    &to 3      &trans   &kp PG_DN  &kp LEFT  &trans    &trans  &kp DOWN  &trans  &kp LC(F12)  &kp LC(DOT) &kp LC(Z)       &trans
                   &trans     &trans   &trans     &trans    &trans    &trans  &trans    &trans  &trans         &trans
             >;
         };
@@ -161,7 +161,7 @@ nice_view_spi: &spi0 {
 &trans        &trans    &kp LC(C)  &trans       &trans         &trans                          &trans    &trans   &trans   &trans  &trans  &trans
 &kp LC(BSPC)  &trans    &trans     &kp LC(DEL)  &kp LC(RIGHT)  &trans                          &trans    &b_kill  &trans   &trans  &trans  &trans
 &trans        &trans    &trans     &trans       &kp PG_UP      &kp LC(LEFT)  &trans    &trans  &trans  &trans   &m_coma  &m_dot  &trans  &trans
-                        &trans     &trans       &trans         &trans        &trans    &trans  &trans    &trans   &trans   &trans
+                        &trans     &trans       &trans         &trans        &trans    &kp LSHFT  &trans    &trans   &trans   &trans
             >;
         };
          func {
