@@ -54,7 +54,12 @@ nice_view_spi: &spi0 {
             bindings = <&saveall>, <&save>;
             mods = <MOD_LCTL>;
         };
-
+        m_dot: m_dot {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp F12>, <&kp LS(END)>;
+            mods = <MOD_LSHIFT>;
+        };
     };
 
     macros {
@@ -88,6 +93,20 @@ nice_view_spi: &spi0 {
                 <&macro_tap &kp LC(W)>,
                 <&to 0>;
         };
+        nextbfr: nextbfr {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &kp LC(TAB)>,
+                <&to 0>;
+        };
+        markall: markall {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &kp LC(A)>,
+                <&to 0>;
+        };
         kill: kill {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -96,6 +115,15 @@ nice_view_spi: &spi0 {
                 <&macro_tap &kp LC(C)>,
                 <&macro_tap &kp BSPC>;
         };
+        b_kill: b_kill {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &kp LS(HOME)>,
+                <&macro_tap &kp LC(C)>,
+                <&macro_tap &kp BSPC>;
+        };
+
     };
 
     keymap {
@@ -128,18 +156,18 @@ nice_view_spi: &spi0 {
             bindings = <
 &trans  &trans    &trans     &trans   &trans     &trans                      &trans    &trans  &trans      &trans  &trans    &trans
 &trans  &trans    &kp LC(C)  &kp END  &kp LS(F3)    &trans                      &kp LC(V) &trans  &trans      &trans  &kp UP    &trans
-&kp LC(BSPC)  &trans    &trans  &kp LC(DEL)  &kp LC(RIGHT)  &to 0                       &trans    &trans  &trans      &trans  &trans    &trans
-&trans  &trans    &to 3      &trans   &kp PG_UP  &kp LC(LEFT)  &trans    &trans  &kp DOWN  &trans  &kp LC(COMMA)  &trans  &kp LC(Z) &trans
+&kp LC(BSPC)  &trans    &trans  &kp LC(DEL)  &kp LC(RIGHT)  &to 0                       &trans    &b_kill  &trans      &trans  &trans    &trans
+&trans  &trans    &to 3      &trans   &kp PG_UP  &kp LC(LEFT)  &trans    &trans  &kp DOWN  &trans  &kp LA(LEFT)  &m_dot  &kp LC(Z) &trans
                   &trans     &trans   &trans     &trans    &trans    &trans  &trans    &trans    &trans    &trans
             >;
         };
          func {
             display-name = "func";
             bindings = <
-&trans  &trans  &trans   &trans  &trans   &trans                    &trans  &trans  &trans    &trans  &trans  &trans
-&trans  &trans  &trans   &trans  &trans   &trans                    &trans  &trans  &trans    &trans  &trans  &trans
-&trans  &trans  &s_save  &trans  &find    &to 0                     &trans  &trans  &killbfr  &trans  &trans  &trans
-&trans  &trans  &trans   &trans  &trans   &trans  &trans    &trans  &trans  &trans  &trans    &trans  &trans  &trans
+&trans  &trans  &trans   &trans  &trans   &trans                    &trans    &trans  &trans    &trans  &trans  &trans
+&trans  &trans  &trans   &trans  &trans   &trans                    &trans    &trans  &trans    &trans  &trans  &trans
+&trans  &trans  &s_save  &trans  &find    &to 0                     &markall  &trans  &killbfr  &trans  &trans  &trans
+&trans  &trans  &trans   &trans  &trans   &nextbfr  &trans    &trans  &trans    &trans  &trans    &trans  &trans  &trans
                 &trans   &trans  &to 0    &kp LCTRL  &trans    &trans  &trans  &trans  &trans    &trans
             >;
         };
