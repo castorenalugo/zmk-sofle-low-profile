@@ -114,14 +114,14 @@ nice_view_spi: &spi0 {
             compatible = "zmk,behavior-mod-morph";
             bindings = <&kp F>, <&kp RIGHT>;
             #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
+            mods = <MOD_LCTL>;
         };
 
         fwrd: fwrd {
             compatible = "zmk,behavior-mod-morph";
             bindings = <&fwrd_c>, <&kp LC(RIGHT)>;
             #binding-cells = <0>;
-            mods = <(MOD_LALT)>;
+            mods = <MOD_LALT>;
         };
 
         nav_c: nav_c {
