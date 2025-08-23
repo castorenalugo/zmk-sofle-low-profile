@@ -342,11 +342,11 @@ nice_view_spi: &spi0 {
         default_layer {
             display-name = "Default";
             bindings = <
-&kp EQUAL  &kp N1   &kp N2   &kp N3     &kp N4   &kp N5                         &kp N6     &kp N7        &kp N8      &kp N9    &kp N0      &kp MINUS
-&kp TAB    &kp Q    &w_cc    &end       &r_src   &kp T                          &w_yank    &kp U         &kp I       &kp O     &prev       &kp LBKT
-&kp BSPC   &home    &srch    &del       &fwrd    &kp G                          &kp H      &kp J         &kp K       &kp L     &kp SEMI    &kp RET
-&kp BSLH   &kp Z    &to_fn   &kp C      &nav     &befr     &kp A     &none      &next      &kp M         &kp COMMA   &kp DOT   &w_undo     &kp SQT
-                    &kp A &kp B    &kp C      &mo 1  &kp LALT            &kp LSHFT  &kp SPACE     &kp D   &kp E      &kp F
+&kp EQUAL  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5                         &kp N6     &kp N7        &kp N8      &kp N9    &kp N0      &kp MINUS
+&kp TAB    &kp Q   &kp W   &kp E   &kp R   &kp T                          &kp Y    &kp U         &kp I       &kp O     &prev       &kp LBKT
+&kp BSPC   &kp A   &kp S   &kp D   &kp F   &kp G                          &kp H      &kp J         &kp K       &kp L     &kp SEMI    &kp RET
+&kp BSLH   &kp Z   &kp X   &kp C   &kp V   &kp B     &kp A     &none      &next      &kp M         &kp COMMA   &kp DOT   &w_undo     &kp SQT
+                    &kp A &kp B    &kp C   &mo 1  &kp LALT            &kp LSHFT  &kp SPACE     &kp D   &kp E      &kp F
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -355,7 +355,7 @@ nice_view_spi: &spi0 {
             display-name = "control";
             bindings = <
 &trans  &trans    &trans     &trans   &trans     &trans                      &trans    &trans  &trans      &trans  &trans    &trans
-&trans  &trans    &kp LC(X)  &kp END  &kp LS(F3) &trans                      &trans    &trans  &trans      &trans  &kp UP    &trans
+&trans  &trans    &kp LC(X)  &kp END  &kp LS(F3) &trans                      &kp LC(V)    &trans  &trans      &trans  &kp UP    &trans
 &trans  &kp HOME  &kp LC(F)  &kp DEL  &kp RIGHT  &to 0                       &trans    &trans  &trans      &trans  &trans    &trans
 &trans  &trans    &to 2      &trans   &kp END    &kp LEFT  &trans    &trans  &kp DOWN  &trans  &kp LC(COMMA)  &trans  &kp LC(Z) &trans
                   &trans     &trans   &trans     &trans    &trans    &trans  &trans    &trans    &trans    &trans
