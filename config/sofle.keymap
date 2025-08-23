@@ -58,7 +58,7 @@ nice_view_spi: &spi0 {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp F12>, <&kp LS(END)>;
-            mods = <MOD_LSHIFT>;
+            mods = <MOD_LSFT>;
         };
     };
 
