@@ -92,7 +92,7 @@ nice_view_spi: &spi0 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_tap &kp LS(END),
+                <&macro_tap &kp LS(END)>,
                 <&macro_tap &kp LC(C)>,
                 <&macro_tap &kp BSPC>;
         };
