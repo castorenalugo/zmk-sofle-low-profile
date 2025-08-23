@@ -158,9 +158,9 @@ nice_view_spi: &spi0 {
             display-name = "meta";
             bindings = <
 &trans        &trans    &trans     &trans       &trans         &trans                          &trans    &trans   &trans   &trans  &trans  &trans
-&trans        &trans    &kp LC(C)  &trans       &trans         &trans                          &trans    &trans   &trans   &trans  &kp UP  &trans
+&trans        &trans    &kp LC(C)  &trans       &trans         &trans                          &trans    &trans   &trans   &trans  &trans  &trans
 &kp LC(BSPC)  &trans    &trans     &kp LC(DEL)  &kp LC(RIGHT)  &trans                          &trans    &b_kill  &trans   &trans  &trans  &trans
-&trans        &trans    &trans     &trans       &kp PG_UP      &kp LC(LEFT)  &trans    &trans  &kp DOWN  &trans   &m_coma  &m_dot  &trans  &trans
+&trans        &trans    &trans     &trans       &kp PG_UP      &kp LC(LEFT)  &trans    &trans  &trans  &trans   &m_coma  &m_dot  &trans  &trans
                         &trans     &trans       &trans         &trans        &trans    &trans  &trans    &trans   &trans   &trans
             >;
         };
