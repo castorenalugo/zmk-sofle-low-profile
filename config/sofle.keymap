@@ -302,7 +302,7 @@ nice_view_spi: &spi0 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_tap &kp LC(RIGHT)>
+                <&macro_tap &kp LC(RIGHT)>;
         };
 
         find: find {
