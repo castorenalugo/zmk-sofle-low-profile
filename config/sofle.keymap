@@ -88,6 +88,14 @@ nice_view_spi: &spi0 {
                 <&macro_tap &kp LC(W)>,
                 <&to 0>;
         };
+        kill: kill {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &kp LS(END),
+                <&macro_tap &kp LC(C)>,
+                <&macro_tap &kp BSPC>;
+        };
     };
 
     keymap {
@@ -110,7 +118,7 @@ nice_view_spi: &spi0 {
             bindings = <
 &trans  &trans    &trans     &trans   &trans     &trans                      &trans    &trans  &trans      &trans  &trans    &trans
 &trans  &trans    &kp LC(X)  &kp END  &kp LS(F3) &trans                      &kp LC(V) &trans  &trans      &trans  &kp UP    &trans
-&trans  &kp HOME  &kp LC(F)  &kp DEL  &kp RIGHT  &to 0                       &trans    &trans  &trans      &trans  &trans    &trans
+&trans  &kp HOME  &kp LC(F)  &kp DEL  &kp RIGHT  &to 0                       &trans    &trans  &kill       &trans  &trans    &trans
 &trans  &trans    &to 3      &trans   &kp PG_DN  &kp LEFT  &trans    &trans  &kp DOWN  &trans  &kp LC(COMMA)  &trans  &kp LC(Z) &trans
                   &trans     &trans   &trans     &trans    &trans    &trans  &trans    &trans    &trans    &trans
             >;
