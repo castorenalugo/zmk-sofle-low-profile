@@ -110,11 +110,33 @@ nice_view_spi: &spi0 {
             mods = <(MOD_LCTL)>;
         };
 
-        fwrd: fwrd { compatible = "zmk,behavior-mod-morph"; bindings = <&kp F>, <&kp RIGHT>; #binding-cells = <0>; mods = <(MOD_LCTL)>;};
+        fwrd_c: fwrd_c {
+            compatible = "zmk,behavior-mod-morph";
+            bindings = <&kp F>, <&kp RIGHT>;
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
 
-        mod_ctrl: mod_ctrl { compatible = "zmk,behavior-mod-morph"; bindings = <&kp V>, <&kp PAGE_DOWN>; #binding-cells = <0>; mods = <MOD_LCTL>;};
+        fwrd: fwrd {
+            compatible = "zmk,behavior-mod-morph";
+            bindings = <&fwrd_c>, <&kp LC(RIGHT)>;
+            #binding-cells = <0>;
+            mods = <(MOD_LALT)>;
+        };
 
-        nav: nav { compatible = "zmk,behavior-mod-morph"; bindings = <&mod_ctrl>, <&kp PAGE_UP>; #binding-cells = <0>; mods = <MOD_LALT>;};
+        nav_c: nav_c {
+            compatible = "zmk,behavior-mod-morph";
+            bindings = <&kp V>, <&kp PAGE_DOWN>;
+            #binding-cells = <0>;
+            mods = <MOD_LCTL>;
+        };
+
+        nav: nav {
+            compatible = "zmk,behavior-mod-morph";
+            bindings = <&nav_c>, <&kp PAGE_UP>;
+            #binding-cells = <0>;
+            mods = <MOD_LALT>;
+        };
 
         home: home { compatible = "zmk,behavior-mod-morph"; bindings = <&kp A>, <&kp HOME>; #binding-cells = <0>; mods = <(MOD_LCTL)>;};
 
