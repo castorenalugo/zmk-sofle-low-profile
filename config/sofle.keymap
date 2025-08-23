@@ -147,10 +147,10 @@ nice_view_spi: &spi0 {
         control {
             display-name = "control";
             bindings = <
-&LC(EQUAL)  &trans    &trans     &trans   &trans     &trans                      &trans    &trans  &trans         &trans      &trans        &kp LC(MINUS)
-&trans      &trans    &kp LC(X)  &kp END  &kp LS(F3) &trans                      &kp LC(V) &trans  &trans         &trans      &kp UP        &trans
-&trans      &kp HOME  &kp LC(F)  &kp DEL  &kp RIGHT  &trans                      &trans    &trans  &kill          &trans      &kp LC(GRAVE) &trans
-&trans      &trans    &to 3      &trans   &kp PG_DN  &kp LEFT  &trans    &trans  &kp DOWN  &trans  &kp LC(F12)  &kp LC(DOT) &kp LC(Z)       &trans
+&kp LC(EQUAL) &trans    &trans     &trans   &trans     &trans                      &trans    &trans  &trans         &trans      &trans        &kp LC(MINUS)
+&trans        &trans    &kp LC(X)  &kp END  &kp LS(F3) &trans                      &kp LC(V) &trans  &trans         &trans      &kp UP        &trans
+&trans        &kp HOME  &kp LC(F)  &kp DEL  &kp RIGHT  &trans                      &trans    &trans  &kill          &trans      &kp LC(GRAVE) &trans
+&kp LC(B)     &trans    &to 3      &trans   &kp PG_DN  &kp LEFT  &trans    &trans  &kp DOWN  &trans  &kp LC(F12)    &kp LC(DOT) &kp LC(Z)     &kp LC(J)
                       &trans     &trans   &trans     &trans    &trans    &trans  &trans    &trans  &trans         &trans
             >;
         };
