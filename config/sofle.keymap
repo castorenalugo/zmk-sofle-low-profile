@@ -357,7 +357,7 @@ nice_view_spi: &spi0 {
 &trans  &trans    &trans     &trans   &trans     &trans                      &trans    &trans  &trans      &trans  &trans    &trans
 &trans  &trans    &kp LC(X)  &kp END  &kp LS(F3) &trans                      &trans    &trans  &trans      &trans  &kp UP    &trans
 &trans  &kp HOME  &kp LC(F)  &kp DEL  &kp RIGHT  &to 0                       &trans    &trans  &trans      &trans  &trans    &trans
-&trans  &trans    &to 2      &trans   &kp END    &kp LEFT  &trans    &trans  &kp DOWN  &trans  &LC(COMMA)  &trans  &kp LC(Z) &trans
+&trans  &trans    &to 2      &trans   &kp END    &kp LEFT  &trans    &trans  &kp DOWN  &trans  &kp LC(COMMA)  &trans  &kp LC(Z) &trans
                   &trans     &trans   &trans     &trans    &trans    &trans  &trans    &trans    &trans    &trans
             >;
         };
