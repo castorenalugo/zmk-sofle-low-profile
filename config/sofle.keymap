@@ -65,6 +65,12 @@ nice_view_spi: &spi0 {
             bindings = <&kp LA(LEFT)>, <&kp LC(HOME)>;
             mods = <MOD_LSFT>;
         };
+        m_slsh: m_slsh {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LC(SPACE)>, <&kp LC(Y)>;
+            mods = <MOD_LSFT>;
+        };
     };
 
     macros {
@@ -157,10 +163,10 @@ nice_view_spi: &spi0 {
         meta {
             display-name = "meta";
             bindings = <
-&trans        &trans    &trans     &trans       &trans         &trans                          &trans    &trans   &trans   &trans  &trans  &trans
-&trans        &trans    &kp LC(C)  &trans       &trans         &trans                          &trans    &trans   &trans   &trans  &trans  &trans
-&kp LC(BSPC)  &trans    &trans     &kp LC(DEL)  &kp LC(RIGHT)  &trans                          &trans    &b_kill  &trans   &trans  &trans  &trans
-&trans        &trans    &trans     &trans       &kp PG_UP      &kp LC(LEFT)  &trans    &trans  &trans  &trans   &m_coma  &m_dot  &trans  &trans
+&trans        &trans    &trans     &trans       &trans         &trans                          &trans  &trans   &trans   &trans  &trans   &trans
+&trans        &trans    &kp LC(C)  &trans       &trans         &trans                          &trans  &trans   &trans   &trans  &trans   &trans
+&kp LC(BSPC)  &trans    &trans     &kp LC(DEL)  &kp LC(RIGHT)  &trans                          &trans  &b_kill  &trans   &trans  &trans   &trans
+&trans        &trans    &trans     &trans       &kp PG_UP      &kp LC(LEFT)  &trans    &trans  &trans  &trans   &m_coma  &m_dot  &m_slsh  &trans
                         &trans     &trans       &trans         &trans        &trans    &kp LSHFT  &trans    &trans   &trans   &trans
             >;
         };
