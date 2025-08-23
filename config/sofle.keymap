@@ -112,16 +112,16 @@ nice_view_spi: &spi0 {
 
         fwrd_c: fwrd_c {
             compatible = "zmk,behavior-mod-morph";
-            bindings = <&kp F>, <&kp RIGHT>;
+            bindings = <&kp F>, <&kp LC(RIGHT)>;
             #binding-cells = <0>;
-            mods = <MOD_LCTL>;
+            mods = <MOD_LALT>;
         };
 
         fwrd: fwrd {
             compatible = "zmk,behavior-mod-morph";
-            bindings = <&fwrd_c>, <&ctrl_right>;
+            bindings = <&fwrd_c>, <&kp RIGHT>;
             #binding-cells = <0>;
-            mods = <MOD_LALT>;
+            mods = <MOD_LCTL>;
         };
 
         nav_c: nav_c {
