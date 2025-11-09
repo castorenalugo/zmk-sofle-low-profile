@@ -47,12 +47,6 @@ nice_view_spi: &spi0 {
 
 / {
     behaviors {
-        s_save: s_save {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&saveall>, <&save>;
-            mods = <MOD_LCTL>;
-        };
         m_dot: m_dot {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -86,14 +80,6 @@ nice_view_spi: &spi0 {
             #binding-cells = <0>;
             bindings =
                 <&macro_tap &kp LC(S)>,
-                <&to 0>;
-        };
-        saveall: saveall {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap &kp LC(K)>,
-                <&macro_tap &kp S>,
                 <&to 0>;
         };
         killbfr: killbfr {
@@ -133,6 +119,75 @@ nice_view_spi: &spi0 {
                 <&macro_tap &kp LC(C)>,
                 <&macro_tap &kp BSPC>;
         };
+        clear: clear {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &kp LS(END)>,
+                <&macro_tap &kp BSPC>;
+        };
+        b_clear: b_clear {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &kp LS(HOME)>,
+                <&macro_tap &kp BSPC>;
+        };
+        split: split {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &kp LC(BSLH)>,
+                <&macro_tap &kp LC(K)>,
+                <&macro_tap &kp LC(Y)>,
+                <&to 0>;
+        };
+        w_incrse: w_incrse {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &kp LC(X)>,
+                <&macro_tap &kp EQUAL>,
+                <&to 0>;
+        };
+        w_decrse: w_decrse {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &kp LC(X)>,
+                <&macro_tap &kp MINUS>,
+                <&to 0>;
+        };
+        other_w: other_w {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &kp LC(K)>,
+                <&macro_tap &kp LC(Y)>,
+                <&to 0>;
+        };
+        w_join: w_join {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &kp LC(X)>,
+                <&macro_tap &kp N0>,
+                <&to 0>;
+        };
+        f_bufr: f_bufr {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &kp LC(PG_DN)>,
+                <&to 0>;
+        };
+        b_bufr: b_bufr {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &kp LC(PG_UP)>,
+                <&to 0>;
+        };
     };
 
     keymap {
@@ -141,43 +196,43 @@ nice_view_spi: &spi0 {
         default_layer {
             display-name = "Default";
             bindings = <
-&kp EQUAL  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5                         &kp N6     &kp N7        &kp N8      &kp N9    &kp N0      &kp MINUS
-&kp TAB    &kp Q   &kp W   &kp E   &kp R   &kp T                          &kp Y    &kp U         &kp I       &kp O     &kp P       &kp LBKT
-&kp BSPC   &kp A   &kp S   &kp D   &kp F   &kp G                          &kp H      &kp J         &kp K       &kp L     &kp SEMI    &kp RET
-&kp BSLH   &kp Z   &kp X   &kp C   &kp V   &kp B     &kp A     &none      &kp N      &kp M         &kp COMMA   &kp DOT   &kp SLASH     &kp SQT
-                    &kp A &kp B    &kp C   &mo 1  &mo 2            &kp LSHFT  &kp SPACE     &kp D   &kp E      &kp F
+&kp EQUAL     &kp N1     &kp N2       &kp N3        &kp N4      &kp N5                      &kp N6     &kp N7     &kp N8      &kp N9    &kp N0      &kp GRAVE
+&kp TAB       &kp Q      &kp W        &kp E         &kp R       &kp T                       &kp Y      &kp U      &kp I       &kp O     &kp P       &kp DEL
+&kp BSPC      &kp A      &kp S        &kp D         &kp F       &kp G                       &kp H      &kp J      &kp K       &kp L     &kp SEMI    &kp RET
+&kp ESC       &kp Z      &kp X        &kp C         &kp V       &kp B    &none     &none    &kp N      &kp M      &kp COMMA   &kp DOT   &kp SLASH   &kp BSLH
+                         &kp MINUS    &kp LBKT      &mo 2       &mo 1    &none     &none    &kp SPACE  &kp LSHFT  &kp RBKT    &kp SQT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
-        control {
+control {
             display-name = "control";
             bindings = <
-&kp LC(EQUAL) &trans    &trans     &trans   &trans     &trans                      &trans    &trans  &trans       &trans      &trans        &kp LC(MINUS)
-&trans        &trans    &kp LC(X)  &kp END  &kp LS(F3) &trans                      &kp LC(V) &trans  &trans       &trans      &kp UP        &trans
-&trans        &kp HOME  &kp LC(F)  &kp DEL  &kp RIGHT  &trans                      &trans    &trans  &kill        &trans      &kp LC(GRAVE) &trans
-&kp LC(B)     &trans    &to 3      &trans   &kp PG_DN  &kp LEFT  &trans    &trans  &kp DOWN  &trans  &kp LC(DOT)  &kp LC(F12) &kp LC(Z)     &kp LC(J)
-                      &trans     &trans   &trans     &trans    &trans    &trans  &trans    &trans  &trans         &trans
+&kp LC(EQUAL) &none      &none          &none       &none        &none                      &none      &none      &none        &none        &none         &none
+&none         &none      &kp LC(X)      &kp END     &kp LS(F3)   &none                      &kp LC(V)  &none      &none        &none        &kp UP        &clear
+&b_clear      &kp HOME   &kp LC(F)      &kp DEL     &kp RIGHT    &none                      &none      &none      &kill        &kp LC(L)    &kp LC(GRAVE) &none
+&kp LC(B)     &none      &to 3          &none       &kp PG_DN    &kp LEFT    &none &none    &kp DOWN   &none      &kp LC(DOT)  &kp LC(F12)  &kp LC(Z)     &kp LC(J)
+                         &kp LC(MINUS)  &none        &none       &none       &none &none    &none      &kp LSHFT  &none
             >;
         };
         meta {
             display-name = "meta";
             bindings = <
-&trans        &trans    &trans     &trans       &trans         &trans                          &trans  &trans   &trans   &trans  &trans   &trans
-&trans        &trans    &kp LC(C)  &trans       &trans         &trans                          &trans  &trans   &trans   &trans  &trans   &trans
-&kp LC(BSPC)  &trans    &trans     &kp LC(DEL)  &kp LC(RIGHT)  &trans                          &trans  &b_kill  &trans   &trans  &trans   &trans
-&trans        &trans    &trans     &trans       &kp PG_UP      &kp LC(LEFT)  &trans    &trans  &trans  &trans   &m_coma  &m_dot  &m_slsh  &trans
-                        &trans     &trans       &trans         &trans        &trans    &kp LSHFT  &trans    &trans   &trans   &trans
+&none          &none    &none       &none       &none           &none                       &none     &none      &none        &none      &none        &none
+&none          &none    &kp LC(C)   &none       &none           &none                       &none     &none      &none        &none      &none        &kp LC(DEL)
+&kp LC(BSPC)   &none    &none       &none       &kp LC(RIGHT)   &none                       &none     &none      &b_kill      &none      &none        &none
+&none          &none    &none       &none       &kp PG_UP       &kp LC(LEFT)                &none     &none      &m_coma      &m_dot     &m_slsh      &none
+                        &none       &none       &none           &none        &none &none    &none     &kp LSHFT  &none
             >;
         };
-         func {
-            display-name = "func";
+        prefix {
+            display-name = "prefix";
             bindings = <
-&trans  &trans  &trans   &trans  &trans   &trans                    &trans    &trans  &trans    &trans  &trans  &trans
-&trans  &trans  &trans   &trans  &trans   &trans                    &trans    &trans  &trans    &trans  &trans  &trans
-&trans  &trans  &s_save  &trans  &find    &to 0                     &markall  &trans  &killbfr  &trans  &trans  &trans
-&trans  &trans  &trans   &trans  &trans   &nextbfr  &trans    &trans  &trans    &trans  &trans    &trans  &trans  &trans
-                &trans   &trans  &trans   &kp LCTRL  &trans    &trans  &trans  &trans  &trans    &trans
+&w_incrse    &none       &none         &split      &none       &none                       &kp LC(Y)    &none      &none        &none       &w_join     &none
+&none        &none       &none         &none       &none       &none                       &none        &none      &none        &other_w    &none      &none
+&none        &none       &save         &none       &find       &to 0                       &markall     &none      &killbfr     &none       &none      &none
+&none        &none       &none         &none       &none       &none                       &none        &none      &b_bufr      &f_bufr     &none      &none
+                        &w_decrse      &none       &none       &none        &none &none    &none        &none      &none
             >;
         };
     };
