@@ -149,14 +149,14 @@ nice_view_spi: &spi0 {
                 <&macro_tap &kp LC(C)>,
                 <&macro_tap &kp RIGHT>;
         };
-        rub_line {
+        rub_line: rub_line {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
                 <&macro_tap &kp LS(HOME)>,
                 <&macro_tap &kp BSPC>;
         };
-        rub_word {
+        rub_word: rub_word {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
