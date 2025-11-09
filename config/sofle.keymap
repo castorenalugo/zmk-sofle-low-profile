@@ -107,7 +107,7 @@ nice_view_spi: &spi0 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_tap &kp LS(LC(RIGHT))>,
+                <&macro_tap &kp LS(END)>,
                 <&macro_tap &kp LC(C)>,
                 <&macro_tap &kp LEFT>;
         };
@@ -115,30 +115,52 @@ nice_view_spi: &spi0 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_tap &kp LS(END)>,
+                <&macro_tap &kp LS(LC(RIGHT))>,
                 <&macro_tap &kp LC(C)>,
                 <&macro_tap &kp LEFT>;
         };
-        b_kill: b_kill {
+        del_line {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &kp LS(END)>,
+                <&macro_tap &kp DEL>;
+        };
+        del_word {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &kp LS(LC(RIGHT))>,
+                <&macro_tap &kp DEL>;
+        };
+        cpy_line_l: cpy_line_l {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
                 <&macro_tap &kp LS(HOME)>,
                 <&macro_tap &kp LC(C)>,
-                <&macro_tap &kp BSPC>;
+                <&macro_tap &kp RIGHT>;
         };
-        clear: clear {
+        cpy_word_l: cpy_word_l {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_tap &kp LS(END)>,
-                <&macro_tap &kp BSPC>;
+                <&macro_tap &kp LS(LC(LEFT))>,
+                <&macro_tap &kp LC(C)>,
+                <&macro_tap &kp RIGHT>;
         };
-        b_clear: b_clear {
+        rub_line {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
                 <&macro_tap &kp LS(HOME)>,
+                <&macro_tap &kp BSPC>;
+        };
+        rub_word {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &kp LS(LC(LEFT))>,
                 <&macro_tap &kp BSPC>;
         };
         split: split {
@@ -216,21 +238,21 @@ nice_view_spi: &spi0 {
 control {
             display-name = "control";
             bindings = <
-&kp LC(EQUAL) &none      &none          &none       &none        &none                      &none      &none      &none         &none        &none         &none
-&none         &none      &kp LC(X)      &kp END     &kp LS(F3)   &none                      &kp LC(V)  &none      &none         &none        &kp UP        &clear
-&b_clear      &kp HOME   &kp LC(F)      &kp DEL     &kp RIGHT    &none                      &none      &none      &cpy_line_r   &kp LC(L)    &kp LC(GRAVE) &none
-&kp LC(B)     &none      &to 3          &none       &kp PG_DN    &kp LEFT    &none &none    &kp DOWN   &none      &kp LC(DOT)   &kp LC(F12)  &kp LC(Z)     &kp LC(J)
-                         &kp LC(MINUS)  &none        &none       &none       &none &none    &none      &kp LSHFT  &none
+&kp LC(EQUAL) &none      &none          &none        &none        &none                      &none      &none      &none         &none        &none         &none
+&none         &none      &kp LC(X)      &kp END      &kp LS(F3)   &none                      &kp LC(V)  &none      &none         &none        &kp UP        &del_line
+&rub_line     &kp HOME   &kp LC(F)      &cpy_line_l  &kp RIGHT    &none                      &none      &none      &cpy_line_r   &kp LC(L)    &kp LC(GRAVE) &none
+&kp LC(B)     &none      &to 3          &none        &kp PG_DN    &kp LEFT    &none &none    &kp DOWN   &none      &kp LC(DOT)   &kp LC(F12)  &kp LC(Z)     &kp LC(J)
+                         &kp LC(MINUS)  &none        &none        &none       &none &none    &none      &kp LSHFT  &none
             >;
         };
         meta {
             display-name = "meta";
             bindings = <
-&none          &none    &none       &none       &none           &none                       &none     &none      &none        &none      &none        &none
-&none          &none    &kp LC(C)   &none       &none           &none                       &none     &none      &none        &none      &none        &kp LC(DEL)
-&kp LC(BSPC)   &none    &none       &none       &kp LC(RIGHT)   &none                       &none     &none      &cpy_word_r  &none      &none        &none
-&none          &none    &none       &none       &kp PG_UP       &kp LC(LEFT)                &none     &none      &m_coma      &m_dot     &m_slsh      &none
-                        &none       &none       &none           &none        &none &none    &none     &kp LSHFT  &none
+&none         &none    &none       &none        &none           &none                       &none     &none      &none        &none      &none        &none
+&none         &none    &kp LC(C)   &none        &none           &none                       &none     &none      &none        &none      &none        &del_word
+&rub_word     &none    &none       &cpy_word_l  &kp LC(RIGHT)   &none                       &none     &none      &cpy_word_r  &none      &none        &none
+&none         &none    &none       &none        &kp PG_UP       &kp LC(LEFT)                &none     &none      &m_coma      &m_dot     &m_slsh      &none
+                       &none       &none        &none           &none        &none &none    &none     &kp LSHFT  &none
             >;
         };
         prefix {
