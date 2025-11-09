@@ -103,13 +103,21 @@ nice_view_spi: &spi0 {
                 <&macro_tap &kp LC(A)>,
                 <&to 0>;
         };
-        kill: kill {
+        cpy_line_r : cpy_line_r {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &kp LS(LC(RIGHT))>,
+                <&macro_tap &kp LC(C)>,
+                <&macro_tap &kp LEFT>;
+        };
+        cpy_word_r : cpy_word_r {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
                 <&macro_tap &kp LS(END)>,
                 <&macro_tap &kp LC(C)>,
-                <&macro_tap &kp BSPC>;
+                <&macro_tap &kp LEFT>;
         };
         b_kill: b_kill {
             compatible = "zmk,behavior-macro";
@@ -208,10 +216,10 @@ nice_view_spi: &spi0 {
 control {
             display-name = "control";
             bindings = <
-&kp LC(EQUAL) &none      &none          &none       &none        &none                      &none      &none      &none        &none        &none         &none
-&none         &none      &kp LC(X)      &kp END     &kp LS(F3)   &none                      &kp LC(V)  &none      &none        &none        &kp UP        &clear
-&b_clear      &kp HOME   &kp LC(F)      &kp DEL     &kp RIGHT    &none                      &none      &none      &kill        &kp LC(L)    &kp LC(GRAVE) &none
-&kp LC(B)     &none      &to 3          &none       &kp PG_DN    &kp LEFT    &none &none    &kp DOWN   &none      &kp LC(DOT)  &kp LC(F12)  &kp LC(Z)     &kp LC(J)
+&kp LC(EQUAL) &none      &none          &none       &none        &none                      &none      &none      &none         &none        &none         &none
+&none         &none      &kp LC(X)      &kp END     &kp LS(F3)   &none                      &kp LC(V)  &none      &none         &none        &kp UP        &clear
+&b_clear      &kp HOME   &kp LC(F)      &kp DEL     &kp RIGHT    &none                      &none      &none      &cpy_line_r   &kp LC(L)    &kp LC(GRAVE) &none
+&kp LC(B)     &none      &to 3          &none       &kp PG_DN    &kp LEFT    &none &none    &kp DOWN   &none      &kp LC(DOT)   &kp LC(F12)  &kp LC(Z)     &kp LC(J)
                          &kp LC(MINUS)  &none        &none       &none       &none &none    &none      &kp LSHFT  &none
             >;
         };
@@ -220,7 +228,7 @@ control {
             bindings = <
 &none          &none    &none       &none       &none           &none                       &none     &none      &none        &none      &none        &none
 &none          &none    &kp LC(C)   &none       &none           &none                       &none     &none      &none        &none      &none        &kp LC(DEL)
-&kp LC(BSPC)   &none    &none       &none       &kp LC(RIGHT)   &none                       &none     &none      &b_kill      &none      &none        &none
+&kp LC(BSPC)   &none    &none       &none       &kp LC(RIGHT)   &none                       &none     &none      &cpy_word_r  &none      &none        &none
 &none          &none    &none       &none       &kp PG_UP       &kp LC(LEFT)                &none     &none      &m_coma      &m_dot     &m_slsh      &none
                         &none       &none       &none           &none        &none &none    &none     &kp LSHFT  &none
             >;
