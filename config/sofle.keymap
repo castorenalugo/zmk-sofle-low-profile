@@ -103,7 +103,7 @@ nice_view_spi: &spi0 {
                 <&macro_tap &kp LC(A)>,
                 <&to 0>;
         };
-        cpy_line_r : cpy_line_r {
+        cpy_line_r: cpy_line_r {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -111,7 +111,7 @@ nice_view_spi: &spi0 {
                 <&macro_tap &kp LC(C)>,
                 <&macro_tap &kp LEFT>;
         };
-        cpy_word_r : cpy_word_r {
+        cpy_word_r: cpy_word_r {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
